@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+
+    <h1>Bish-Bosh 2.0</h1>
+    <div class="instructions">
+        Welcome to the Bish-Bosh program. How to use?
+        <p>Input a number in the field and click the button to calculate the bish-boshes.</p>
+        <p>A value dividable by three results in "Bish"</p>
+        <p>A value dividable by four results in "Bosh"</p>
+        <p>A value dividable by three AND four results in "Bish-Bosh"</p>
+        <p>If the value isn't dividible by either, the value is printed out</p>
+    </div>
+
+    <input id="inputField" type="number">
+    <button id="calculateButton">Go!</button>
+    <div id="resultField"></div>
+
+    <footer>
+        <p>Author: Me</p>
+        <p>All rights deserved, Bish-Bosh Co &copy; 2024</p>
+    </footer>
+
+    <script>
+        OldBishBosh();
+        function OldBishBosh() {
+            for (let i = 1; i < 100; i++) {
+                let result;
+
+                if (i % 3 == 0 && i % 4 == 0) {
+                    result = 'Bish-Bosh';
+                } else if (i % 3 == 0) {
+                    result = 'Bish';
+                } else if (i % 4 == 0) {
+                    result = 'Bosh';
+                } else {
+                    result = i;
+                }
+
+                console.log(result);
+            }
+        }
+    </script>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
