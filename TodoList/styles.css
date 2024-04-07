@@ -1,8 +1,8 @@
-.active {
+.status_done {
     background-color: green;
 }
 
-.inactive {
-    background-color: red;
+.status_done:first-child {
     text-decoration: line-through;
+
 }

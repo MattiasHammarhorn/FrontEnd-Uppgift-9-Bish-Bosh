@@ -1,6 +1,8 @@
-const taskField = document.getElementById("taskField");
-const taskButton = document.getElementById("taskButton");
-const taskList = document.getElementById("taskList");
+const taskField = document.querySelector('#taskField');
+const taskButton = document.querySelector('#taskButton');
+const taskTable = document.querySelector('#taskTable');
+const taskTableBody = document.querySelector('#taskTable tbody');
+
 var tasks = [];
 
 taskButton.addEventListener('click', function(e) {
@@ -10,32 +12,61 @@ taskButton.addEventListener('click', function(e) {
 function addTask() {
     let taskValue = taskField.value;
 
-    let task = { value: taskValue, status: 'Active' }
+    let task = { value: taskValue, status: 'status_done' }
 
     tasks.push(task);
     
-    UpdateTaskList();
+    UpdateTaskTable();
 }
 
-function UpdateTaskList() {
-    taskList.innerHTML = null;
+function UpdateTaskTable() {
+    // taskTable.innerHTML = null;
     // todo: see if we can update on change
+    let tableCell1;
+    let tableCell2;
+    let tableCell3;
+    taskTableBody.innerHTML = '';
+    
     for (let i = 0; i < tasks.length; i++) {
-        let listItem = document.createElement('li');
-        listItem.innerText = tasks[i].value;
+
+        let tableRow = document.createElement('tr');
+        tableCell1 = document.createElement('td');
+        tableCell1.innerText = tasks[i].value;
+
+        tableRow.addEventListener('click', function() {
+            tableRow.classList.toggle('status_done');
+        });
+        
+        tableRow.appendChild(tableCell1);
+        
+        tableCell2 = document.createElement('td');
+        tableCell2.innerHTML = 'Active';
+        tableRow.appendChild(tableCell2);
+
+        tableCell3 = document.createElement('td');
+        // let editButton = document.createElement('button');
+        // editButton.innerText = 'Edit';
+        // editButton.classList.add('btn');
+        // editButton.classList.add('btn-warning');
+
+        // editButton.addEventListener('click', function(e) {
+        //     console.log(e.target.parentElement.remove());
+        // });
+        // tableCell3.appendChild(editButton);
 
         let deleteButton = document.createElement('button');
         deleteButton.innerText = 'Delete';
-
-        listItem.addEventListener('click', function() {
-            listItem.classList.toggle('inactive');
-        });
+        deleteButton.classList.add('btn');
+        deleteButton.classList.add('btn-danger');
         
         deleteButton.addEventListener('click', function(e) {
-            console.log(e.target.parentElement.remove());
+            const deleteIndex = tasks.indexOf(tasks[i]);
+            tasks.splice(deleteIndex,1);
+            console.log(tableRow.remove());
         });
-        
-        listItem.appendChild(deleteButton);
-        taskList.appendChild(listItem);
+        tableCell3.appendChild(deleteButton);
+        tableRow.appendChild(tableCell3);
+
+        taskTableBody.appendChild(tableRow);
     }
 }

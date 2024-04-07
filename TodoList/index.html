@@ -3,17 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <title>ToDo List</title>
 </head>
 <body>
 
-    <input type="text" id="taskField">
-    <button id="taskButton">Add task</button>
+    <div class="container">
+        <input type="text" id="taskField">
+        <button id="taskButton" class="btn btn-primary">Add task</button>
 
-    <ul id="taskList">
-    </ul>
-
+        <!-- <ul id="taskList">
+            <li class="">
+                <div>
+                    Call the Dentist
+                    <button class="btn btn-danger">Delete</button>
+                </div>
+            </li>
+            <li class="">
+                <div>
+                    Call the Dentist
+                    <button class="btn btn-danger">Delete</button>
+                </div>
+            </li> -->
+            <table class="table" id="taskTable">
+                <thead>
+                    <tr>
+                        <th>Tasks</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Placeholders -->
+                    <!-- <tr>
+                        <td>Call the dentist</td>
+                        <td>Active</td>
+                        <td>
+                            <button class="btn btn-warning">Edit</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Call the dentist</td>
+                        <td class="status_done">Active</td>
+                        <td>
+                            <button class="btn btn-warning">Edit</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </ul>
+    </div>
     <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
