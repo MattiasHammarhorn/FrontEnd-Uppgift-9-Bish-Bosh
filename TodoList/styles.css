@@ -1,8 +1,15 @@
+body {
+    background-image: linear-gradient(to bottom right, blue, lightblue);
+    background-attachment: fixed;
+}
 .status_done {
-    background-color: green;
+    background-color: lightgray;
 }
 
-.status_done:first-child {
+.status_done {
     text-decoration: line-through;
+}
 
+tr .status_done > td > button {
+    opacity: 1 !important;
 }

@@ -44,15 +44,6 @@ function UpdateTaskTable() {
         tableRow.appendChild(tableCell2);
 
         tableCell3 = document.createElement('td');
-        // let editButton = document.createElement('button');
-        // editButton.innerText = 'Edit';
-        // editButton.classList.add('btn');
-        // editButton.classList.add('btn-warning');
-
-        // editButton.addEventListener('click', function(e) {
-        //     console.log(e.target.parentElement.remove());
-        // });
-        // tableCell3.appendChild(editButton);
 
         let deleteButton = document.createElement('button');
         deleteButton.innerText = 'Delete';
