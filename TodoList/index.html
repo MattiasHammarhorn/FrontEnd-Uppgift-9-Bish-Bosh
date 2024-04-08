@@ -8,17 +8,29 @@
     <title>ToDo List</title>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="../Bish-Bosh/index.html">Bish-Bosh</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="../TodoList/index.html">To-Do List</a>
+            </li>
+        </ul>
+    </nav>
 
     <div class="container rounded-3 bg-light mt-5 p-5">
         <h1 class="mb-3">To-Do List</h1>
-        <input type="text" id="taskField">
-        <button id="taskButton" class="btn btn-primary">Add task</button>
+
+        <!-- <form> -->
+            <input type="text" id="taskField">
+            <button id="taskButton" class="btn btn-primary">Add task</button>
+        <!-- </form> -->
 
         <table class="table" id="taskTable">
             <thead>
                 <tr>
                     <th>Tasks</th>
-                    <th>Status</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -26,17 +38,13 @@
                 <!-- Placeholders -->
                 <!-- <tr class="rounded-3">
                     <td>Call the dentist</td>
-                    <td>Active</td>
                     <td>
-                        <button class="btn btn-warning">Edit</button>
                         <button class="btn btn-danger">Delete</button>
                     </td>
                 </tr>
                 <tr class="rounded-3">
                     <td>Call the dentist</td>
-                    <td>Active</td>
                     <td>
-                        <button class="btn btn-warning">Edit</button>
                         <button class="btn btn-danger">Delete</button>
                     </td>
                 </tr> -->

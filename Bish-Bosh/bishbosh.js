@@ -8,23 +8,28 @@ const boshField = document.querySelector('#boshField');
 const bish = (i, value = bishField.value) => i % value === 0;
 const bosh = (i, value  = boshField.value) => i % value === 0;
 
-calculateButton.addEventListener('click', () => test());
+calculateButton.addEventListener('click', () => initializeBishBosh());
 
-function test() {
-    let lengthValue = parseInt(lengthField.value);
-    let output = NewBishBosh(lengthValue);
+function initializeBishBosh() {
+    let loopValue = parseInt(lengthField.value);
     
-    //todo add all elements into a list and prepend
-    outputList.innerHTML = null;
-    let tempField;
-    for (let i = 0; i < output.length; i++)
-    {
-        // tempField = document.createElement('p');
-        // tempField.innerText = output[i];
-        // outputList.appendChild(tempField);
-        tempField += `<li class="list-group-item">${output[i]}</li>`
+    if (loopValue < 0 || bish < 0 || bosh < 0 ) {
+        console.log("Negative values are not allowed");
+        outputList.innerHTML = '';
+    } else {
+        let output = NewBishBosh(loopValue);
+        PrintBishBosh(output);
     }
-    outputList.innerHTML = tempField;
+
+    // outputList.innerHTML = null;
+    // let tempField;
+
+    // for (let i = 0; i < output.length; i++)
+    // {
+    //     tempField += `<li class="list-group-item">${output[i]}</li>`
+    // }
+    // outputList.innerHTML = tempField;
+
 }
 
 function NewBishBosh(lengthValue) {
@@ -46,4 +51,15 @@ function NewBishBosh(lengthValue) {
     }
 
     return output;
+}
+
+function PrintBishBosh(output) {
+    outputList.innerHTML = null;
+    let tempField;
+
+    for (let i = 0; i < output.length; i++)
+    {
+        tempField += `<li class="list-group-item">${output[i]}</li>`
+    }
+    outputList.innerHTML = tempField;
 }
