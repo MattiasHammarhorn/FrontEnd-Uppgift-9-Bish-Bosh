@@ -12,24 +12,20 @@ calculateButton.addEventListener('click', () => initializeBishBosh());
 
 function initializeBishBosh() {
     let loopValue = parseInt(lengthField.value);
+    let bishValue = parseInt(bishField.value);
+    let boshValue = parseInt(boshField.value);
     
-    if (loopValue < 0 || bish < 0 || bosh < 0 ) {
-        console.log("Negative values are not allowed");
-        outputList.innerHTML = '';
+    // Print error message if value is negative or 0
+    if (!Math.sign(loopValue) || loopValue <= 0) {
+        PrintNegativeValuesErrorMessage();
+    } else if (!Math.sign(bishValue) || bishValue <= 0) {
+        PrintNegativeValuesErrorMessage();
+    } else if (!Math.sign(boshValue) || boshValue <= 0) {
+        PrintNegativeValuesErrorMessage();
     } else {
         let output = NewBishBosh(loopValue);
-        PrintBishBosh(output);
+        PrintResults(output);
     }
-
-    // outputList.innerHTML = null;
-    // let tempField;
-
-    // for (let i = 0; i < output.length; i++)
-    // {
-    //     tempField += `<li class="list-group-item">${output[i]}</li>`
-    // }
-    // outputList.innerHTML = tempField;
-
 }
 
 function NewBishBosh(lengthValue) {
@@ -53,13 +49,18 @@ function NewBishBosh(lengthValue) {
     return output;
 }
 
-function PrintBishBosh(output) {
+function PrintResults(output) {
     outputList.innerHTML = null;
-    let tempField;
+    let tempField = '';
 
     for (let i = 0; i < output.length; i++)
     {
         tempField += `<li class="list-group-item">${output[i]}</li>`
     }
     outputList.innerHTML = tempField;
+}
+
+function PrintNegativeValuesErrorMessage() {
+    outputList.innerHTML = '';
+    outputList.innerHTML = "Negative values are not allowed";
 }
